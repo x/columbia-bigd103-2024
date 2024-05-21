@@ -1,0 +1,78 @@
+site_name: Data Science and Machine Learning 1
+theme:
+  name: material
+  features:
+    - navigation.sections
+  palette:
+    scheme: default
+    primary: white
+    accent: light blue
+plugins:
+    - mkdocs-jupyter
+nav:
+  - Home: index.md
+  - Syllabus: syllabus.md
+  - "Course Objectives": objectives.md
+  - "▹ Class Introduction": slides/01_python/06_24_01_introduction.html
+  - Python:
+    - "▹ A Byte of Python - Basics": slides/01_python/06_24_02_a_byte_of_python_basics.html
+    - "▹ A Byte of Python - Operators and Expressions": slides/01_python/06_24_03_a_byte_of_python_operators_and_expressions.html
+    - "▹ A Byte of Python - Conditionals": slides/01_python/06_24_04_a_byte_of_python_conditionals.html
+    - "▹ A Byte of Python - Loops": slides/01_python/06_25_01_a_byte_of_python_loops.html
+    - "▹ A Byte of Python - Functions": slides/01_python/06_25_02_a_byte_of_python_functions.html
+    - "▹ Text Adventure Games": slides/01_python/06_25_03_zork.html
+    - "▹ What is Data and Data Primitives": slides/01_python/06_26_01_what_is_data_and_data_primitives.html
+    - "▹ A Byte of Python - Lists": slides/01_python/06_26_02_a_byte_of_python_lists.html
+    - "▹ A Byte of Python - Dicts, Tuples, and Sets": slides/01_python/06_27_01_a_byte_of_python_dicts_tuples_sets.html
+    - "▹ Lists and Dicts Recap": slides/01_python/06_27_02_lists_and_dicts_recap.html
+    - "▹ A Byte of Python - Modules": slides/01_python/06_27_03_a_byte_of_python_modules.html
+  - Data Science:
+    - "▹ Describing Data Sets": slides/01_python/06_28_01_describing_data_sets.html
+    - "▹ Intro to Pandas": slides/01_python/06_28_02_pandas.html
+    - "▹ Statistics for Datasets": slides/02_data_science/07_01_01_statistics_for_datasets.html
+    - "▹ Pandas Revisited": slides/02_data_science/07_01_02_pandas_refresher.html
+    - "▹ Data Visualization": slides/02_data_science/07_01_03_data_viz.html
+    - "▹ What is a Model": slides/02_data_science/07_02_01_what_is_a_model.html
+    - "▹ Time-Series Data and Prediction": slides/02_data_science/07_02_02_time_series.html
+    - "▹ Natural Language Processing": slides/02_data_science/07_03_01_nlp.html
+  - Machine Learning:
+    - "▹ Machine Learning": slides/03_machine_learning/07_07_01_machine_learning.html
+    - "▹ Linear Regressions Revisited": slides/03_machine_learning/07_07_02_linear_regression_revisited.html
+    - "▹ Logistic Regression": slides/03_machine_learning/07_07_03_logistic_regression.html
+    - "▹ Decision trees": slides/03_machine_learning/07_08_01_decision_trees.html
+    - "▹ Feature Engineering": slides/03_machine_learning/07_08_02_feature_engineering.html
+    - "▹ Unsupervised Machine Learning": slides/03_machine_learning/07_08_03_unsupervised_machine_learning.html
+    - "▹ Neural Networks": slides/03_machine_learning/07_09_01_neural_networks.html
+    - "▹ Convolutional Neural Networks": slides/03_machine_learning/07_09_02_convolutional_neural_networks.html
+
+  - Assignments:
+    - "2d_lists.ipynb": notebooks/2d_lists.ipynb
+    - "a_more_advanced_calculator.ipynb": notebooks/a_more_advanced_calculator.ipynb
+    - "build_your_own_text_adventure_game.ipynb": notebooks/build_your_own_text_adventure_game.ipynb
+    - "calculator.ipynb": notebooks/calculator.ipynb
+    - "clustering.ipynb": notebooks/clustering.ipynb
+    - "clustering_italian_restaurants.ipynb": notebooks/clustering_italian_restaurants.ipynb
+    - "cnns.ipynb": notebooks/cnns.ipynb
+    - "dataframes.ipynb": notebooks/dataframes.ipynb
+    - "datetimes.ipynb": notebooks/datetimes.ipynb
+    - "decision_trees.ipynb": notebooks/decision_trees.ipynb
+    - "descibe_a_dataset.ipynb": notebooks/descibe_a_dataset.ipynb
+    - "dicts_of_dicts.ipynb": notebooks/dicts_of_dicts.ipynb
+    - "explore_with_pandas.ipynb": notebooks/explore_with_pandas.ipynb
+    - "fantasy_name_generator.ipynb": notebooks/fantasy_name_generator.ipynb
+    - "fibinacci.ipynb": notebooks/fibinacci.ipynb
+    - "freeform_data_analysis.ipynb": notebooks/freeform_data_analysis.ipynb
+    - "linear_regression_revisited.ipynb": notebooks/linear_regression_revisited.ipynb
+    - "lists_of_dicts_and_for_loop_refresher.ipynb": notebooks/lists_of_dicts_and_for_loop_refresher.ipynb
+    - "logistic_regression.ipynb": notebooks/logistic_regression.ipynb
+    - "markov_chains.ipynb": notebooks/markov_chains.ipynb
+    - "matrix_multiplic.ipynb": notebooks/matrix_multiplic.ipynb
+    - "neural_net.ipynb": notebooks/neural_net.ipynb
+    - "one_hot_encoding.ipynb": notebooks/one_hot_encoding.ipynb
+    - "parsing_a_csv.ipynb": notebooks/parsing_a_csv.ipynb
+    - "predicting_the_future.ipynb": notebooks/predicting_the_future.ipynb
+    - "predicting_the_future_airline_passengers.ipynb": notebooks/predicting_the_future_airline_passengers.ipynb
+    - "seaborn.ipynb": notebooks/seaborn.ipynb
+    - "sentiment_analysis_songs.ipynb": notebooks/sentiment_analysis_songs.ipynb
+    - "tfidf_music.ipynb": notebooks/tfidf_music.ipynb
+    - "the_guessing_game.ipynb": notebooks/the_guessing_game.ipynb

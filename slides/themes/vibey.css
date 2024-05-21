@@ -1,0 +1,274 @@
+/*!
+ * Marp / Marpit Custom theme.
+ *
+ * @theme vibey
+ * @author Devon Peticolas (extending the work of gaia by Yuki Hattori)
+ *
+ * @auto-scaling true
+ * @size 16:9 1280px 720px
+ * @size 4:3 960px 720px
+ */
+
+ /* Import the Gaia theme */
+@import 'gaia';
+
+:root {
+  --dracula-background: #282a36;
+  --dracula-current-line: #44475a;
+  --dracula-foreground: #f8f8f2;
+  --dracula-comment: #6272a4;
+  --dracula-cyan: #8be9fd;
+  --dracula-green: #50fa7b;
+  --dracula-orange: #ffb86c;
+  --dracula-pink: #ff79c6;
+  --dracula-purple:#bd93f9;
+  --dracula-red: #ff5555;
+  --dracula-yellow: #f1fa8c;
+}
+
+/* Dracula Code theme ------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+marp-pre {
+  display: block;
+  overflow-x: auto;
+  padding: 0.1em;
+  background: var(--dracula-background);
+  border: 1px solid var(--dracula-current-line);
+}
+
+/* When we have a code block that immediately follows a paragraph, another code block, we want to
+ * make it look like the code output of a jupyter cell (no background). */
+marp-pre + marp-pre {
+    margin-top: 0px;
+    background-color: transparent;
+    padding: 0.1em;
+}
+
+
+/* Dracula Foreground */
+.hljs,
+.hljs-subst,
+.hljs-typing,
+.hljs-variable,
+.hljs-template-variable {
+    color: var(--dracula-foreground);
+}
+
+/* Dracula Comment */
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion {
+    color: var(--dracula-comment);
+}
+
+/* Dracula Cyan */
+.hljs-meta .hljs-doctag,
+.hljs-built_in,
+.hljs-selector-tag,
+.hljs-section,
+.hljs-link,
+.hljs-class {
+    color: var(--dracula-cyan);
+}
+
+
+/* Dracula Green */
+.hljs-title {
+    color: var(--dracula-green);
+}
+
+/* Dracula Orange */
+.hljs-params {
+    color: var(--dracula-orange);
+}
+
+/* Dracula Pink */
+.hljs-keyword {
+    color: var(--dracula-pink);
+}
+
+/* Dracula Purple */
+.hljs-literal,
+.hljs-number {
+    color: var(--dracula-purple);
+}
+
+/* Dracula Red */
+.hljs-regexp {
+    color: var(--dracula-red);
+}
+
+/* Dracula Yellow */
+.hljs-string,
+.hljs-name,
+.hljs-type,
+.hljs-attr,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition,
+.hljs-template-tag {
+    color: var(--dracula-yellow);
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-title,
+.hljs-section,
+.hljs-doctag,
+.hljs-type,
+.hljs-name,
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-params,
+.hljs-emphasis {
+ font-style: italic;
+}
+
+/* Dracula Theme For Content ------------------------------------------------ */
+/* -------------------------------------------------------------------------- */
+
+section {
+  background-image: linear-gradient(to bottom right, var(--dracula-background), #17181f);
+  color: var(--dracula-foreground);
+}
+
+a {
+  color: var(--dracula-cyan);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--dracula-pink);
+  text-shadow: 5px 5px var(--dracula-background);
+}
+
+section.invert {
+  background-image: linear-gradient(to bottom right, var(--dracula-purple), var(--dracula-background));
+  color: var(--dracula-foreground);
+}
+section.invert > h1, section.invert > h2, section.invert > h3, section.invert > h4, section.invert > h5, section.invert > h6 {
+  color: var(--dracula-pink);
+}
+
+
+/* Custom Positional Styling  ----------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+/* Vertically center every slide */
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+/* Add the class 'center' to center image content */
+img[alt~="center"] {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+img[alt~="scaled"] {
+    width: 80%;
+    max-height: 80%;
+}
+
+/* Smaller h3s */
+h3 {
+  size: 1.2em;
+}
+
+/* Less above space for headers */
+h3 + p, h4 + p, h5 + p, h6 + p, ul {
+  margin-top: 0.2em;
+}
+
+/* Code blocks should sit pretty close to their above-text explainers/ */
+p + pre, li > pre, h2 + pre, h3 + pre, h4 + pre, h5 + pre, h6 + pre {
+  margin-top: 10px;
+}
+
+/* Make the lists have a little less gap after them. */
+ul {
+  margin-bottom: 10px;
+}
+
+/* Left and Right Columns utility div */
+div.columns {
+  display: flex;
+  justify-content: space-between;
+}
+
+div.columns div {
+  width: 48%;
+  padding: 10px;
+}
+
+div.columns img {
+  width: 48%;
+  padding: 10px;
+}
+
+div.columns ul {
+  width: 48%;
+  padding: 10px;
+}
+
+.book-3d {
+  --book-thickness: 26px;
+  --cover-color: #4D9077;
+
+	perspective: 1000px;
+  max-width: 250px;
+  margin: 0 auto;
+
+}
+
+.book-3d__inner {
+	position: relative;
+	transform-style: preserve-3d;
+transform: rotateY(-25deg)
+}
+
+/* Book Pages */
+.book-3d__inner::before {
+  position: absolute;
+  content: ' ';
+  left: 100%;
+  top: 1%;
+  width: calc( var(--book-thickness) * 2 );
+  height: 98%;
+  transform: translate(-55%,0) rotateY( 90deg );
+  background: linear-gradient( 90deg , #fff 0%, hsl(0, 0%, 94%) 5%, #fff 10%, hsl(0, 0%, 94%) 15%, #fff 20%, hsl(0, 0%, 94%) 25%, #fff 30%, hsl(0, 0%, 94%) 35%, #fff 40%, hsl(0, 0%, 94%) 45%, #fff 50%, hsl(0, 0%, 94%) 55%, #fff 60%, hsl(0, 0%, 94%) 65%, #fff 70%, hsl(0, 0%, 94%) 75%, #fff 80%, hsl(0, 0%, 94%) 85%, #fff 90%, hsl(0, 0%, 94%) 95%, #fff 100% );
+}
+
+/* Rear Cover */
+.book-3d__inner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 1%;
+  width: 100%;
+  height: 100%;
+  transform: translateZ( calc( var(--book-thickness) * -1 ) );
+  background-color: var(--cover-color);
+  border-radius: 0 2px 2px 0;
+  box-shadow: -10px 0 50px 10px rgba(0,0,0, 0.3);
+}
+
+.book-3d__cover {
+  display:block;
+  width:100%;
+  height: auto;
+  border-radius: 0px 2px 2px 0px;
+  transform: translateZ( var(--book-thickness) );
+  box-shadow: 5px 5px 20px rgba(0,0,0, 0.1);
+}
+
+mark {
+  background-color: var(--dracula-yellow);
+  color:black;
+}
