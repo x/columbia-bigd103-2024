@@ -1,0 +1,903 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
+    
+    
+      
+        <title>Data and modeling 1 - Data Science and Machine Learning 1</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.6543a935.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#data-and-modeling" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Data Science and Machine Learning 1" class="md-header__button md-logo" aria-label="Data Science and Machine Learning 1" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Data Science and Machine Learning 1
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data and modeling 1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Data Science and Machine Learning 1" class="md-nav__button md-logo" aria-label="Data Science and Machine Learning 1" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Data Science and Machine Learning 1
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../syllabus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syllabus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../objectives/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Objectives
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://doc.sis.columbia.edu/subj/BIGD/K0103-20242-001/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Columbia Directory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/01_introduction.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ▹ Class Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/02_a_byte_of_python_basics.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ▹ A Byte of Python - Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/03_a_byte_of_python_operators_and_expressions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ▹ A Byte of Python - Operators and Expressions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/04_a_byte_of_python_control_flow.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ▹ A Byte of Python - Control Flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/05_a_byte_of_python_functions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ▹ A Byte of Python - Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/06_a_byte_of_python_data_structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ▹ A Byte of Python - Data Structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/07_a_byte_of_python_modules_and_objects.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ▹ A Byte of Python - Modules and Objects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/08_pandas.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ▹ Pandas Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<style>
+h1 {
+    padding-top: 1.5em;
+}
+/* superscript span */
+</style>
+
+<h1 id="data-and-modeling">Data and Modeling</h1>
+<p><strong>2024-01-01</strong></p>
+<hr />
+<h1 id="what-even-is-data">What Even is Data?</h1>
+<hr />
+<h2 id="early-beginnings">Early Beginnings</h2>
+<p>In the 18th century, as empires expanded and governance became more complex, rulers needed a way to understand their domains. They began recording data on population, land, and resources. This was the dawn of <strong>statistics, a term that initially meant knowledge about the state</strong>.</p>
+<!-- _footer: "1. Chapter 1: The Stakes" -->
+
+<hr />
+<h2 id="the-birth-of-social-physics">The Birth of Social Physics</h2>
+<p>In the early 19th century, a Belgian astronomer named <strong>Adolphe Quetelet</strong> had a revolutionary idea: to apply statistical methods to study society. He introduced the concept of the <strong>"average man"</strong> and developed what we now know as the <strong>Body Mass Index (BMI)</strong>. Quetelet's work laid the foundation for <strong>social physics</strong>, aiming to reveal societal patterns and norms through data.</p>
+<!-- _footer: "2. Chapter 2: Social Physics and L’Homme Moyen" -->
+
+<hr />
+<h2 id="the-dark-turn-eugenics">The Dark Turn: Eugenics</h2>
+<p>As the century progressed, <strong>Francis Galton</strong>, a cousin of Charles Darwin, took Quetelet's ideas further. Galton was fascinated by heredity and the potential to improve the human race. He introduced the concepts of <strong>regression</strong> and <strong>correlation</strong> to study human traits. His work, however, veered into <strong>eugenics</strong>, advocating for the improvement of human genetics through selective breeding, a dark chapter in the history of data science.</p>
+<!-- _footer: "3. Chapter 3: The Statistics of the Deviant" -->
+
+<hr />
+<h2 id="data-shaping-policy">Data Shaping Policy</h2>
+<p>By the early 20th century, data was not just a tool for scientists but also for policymakers. Governments began using data to make informed decisions on education, military strategies, and social policies. <strong>Intelligence testing</strong> became a method to guide educational and military placements, reflecting the growing belief in data's power to shape society.</p>
+<!-- _footer: "4. Chapter 4: Data, Intelligence, and Policy" -->
+
+<hr />
+<h2 id="formalizing-data-science">Formalizing Data Science</h2>
+<p>As the century moved on, data science began to formalize. New <strong>mathematical and statistical techniques</strong> emerged, transforming data analysis into a rigorous scientific discipline. This period marked the <strong>birth of data science</strong> as a recognized field, with significant contributions from statisticians and mathematicians.</p>
+<!-- _footer: "5. Chapter 5: Data’s Mathematical Baptism" -->
+
+<hr />
+<h2 id="data-at-war">Data at War</h2>
+<p><strong>World War II</strong> showcased the critical role of data in military operations. Statisticians and data analysts contributed to <strong>codebreaking</strong> and strategic planning, significantly impacting the war's outcome. The post-war era saw these wartime innovations propel data science forward, influencing technology and industry.</p>
+<!-- _footer: "6. Chapter 6: Data at War" -->
+
+<hr />
+<h2 id="the-age-of-big-data">The Age of Big Data</h2>
+<p>Entering the late 20th and early 21st centuries, we encountered the era of <strong>Big Data</strong>. Defined by its <strong>volume, variety, and velocity</strong>, Big Data transformed how industries operated. Technological advancements in storage and processing allowed for the handling of massive datasets, creating both opportunities and challenges in fields ranging from healthcare to marketing.</p>
+<!-- _footer: "7. Chapter 8: Volume, Variety, and Velocity" -->
+
+<hr />
+<h2 id="machine-learning-and-ai">Machine Learning and AI</h2>
+<p>With the advent of <strong>machine learning</strong>, data science took another leap forward. <strong>Machine learning algorithms</strong> began to revolutionize industries, offering powerful tools for prediction and analysis. These technologies opened new frontiers in <strong>artificial intelligence</strong>, bringing both immense potential and ethical concerns to the forefront of data science.</p>
+<!-- _footer: "8. Chapter 9: Machines, Learning" -->
+
+<hr />
+<h2 id="discussion">Discussion</h2>
+<h3 id="reflect-on-the-evolution-of-data-science">Reflect on the Evolution of Data Science</h3>
+<ul>
+<li>How have historical figures like Quetelet and Galton shaped the way we understand data today?</li>
+<li>Consider the impact of wartime data practices on modern data science.</li>
+<li>What ethical considerations should guide the future of data science and machine learning?</li>
+</ul>
+<hr />
+<hr />
+<h2 id="early-data-collection">Early Data Collection</h2>
+<ul>
+<li>The roots of modern statistics began in the 18th century.</li>
+<li>Early focus was on statecraft: recording population, land, and resources.</li>
+<li>The term "statistics" initially referred to knowledge of the state.</li>
+</ul>
+<!-- _footer: "1. Chapter 1: The Stakes" -->
+
+<hr />
+<h2 id="adolphe-quetelet-and-social-physics">Adolphe Quetelet and Social Physics</h2>
+<ul>
+<li><strong>Adolphe Quetelet</strong>: Introduced the concept of the "average man."</li>
+<li>Developed the <strong>Body Mass Index (BMI)</strong>.</li>
+<li>Applied statistical methods to social science, founding social physics.</li>
+</ul>
+<!-- _footer: "2. Chapter 2: Social Physics and L’Homme Moyen" -->
+
+<hr />
+<h2 id="francis-galton-and-eugenics">Francis Galton and Eugenics</h2>
+<ul>
+<li><strong>Francis Galton</strong>: Pioneer in statistics and the eugenics movement.</li>
+<li>Introduced concepts of <strong>regression</strong> and <strong>correlation</strong>.</li>
+<li>Used data to study heredity and human traits.</li>
+</ul>
+<!-- _footer: "3. Chapter 3: The Statistics of the Deviant" -->
+
+<hr />
+<h2 id="data-in-policy-and-intelligence">Data in Policy and Intelligence</h2>
+<ul>
+<li>Early 20th century saw data being used in government policy and intelligence.</li>
+<li>Development of <strong>intelligence testing</strong> for educational and military purposes.</li>
+<li>Data-driven decision-making became integral to policy formulation.</li>
+</ul>
+<!-- _footer: "4. Chapter 4: Data, Intelligence, and Policy" -->
+
+<hr />
+<h2 id="the-birth-of-data-science">The Birth of Data Science</h2>
+<ul>
+<li>The formalization of data science as a discipline.</li>
+<li>Emergence of new mathematical and statistical techniques.</li>
+<li>Data science evolved into a recognized academic field.</li>
+</ul>
+<!-- _footer: "5. Chapter 5: Data’s Mathematical Baptism" -->
+
+<hr />
+<h2 id="data-in-warfare">Data in Warfare</h2>
+<ul>
+<li>World War II: Critical role of data in military strategy and operations.</li>
+<li>Contributions of statisticians to wartime efforts.</li>
+<li>Post-war impact on data science and technology advancements.</li>
+</ul>
+<!-- _footer: "6. Chapter 6: Data at War" -->
+
+<hr />
+<h2 id="the-era-of-big-data">The Era of Big Data</h2>
+<ul>
+<li>The concept of <strong>Big Data</strong>: Defined by volume, variety, and velocity.</li>
+<li>Enabled by technological advancements in data storage and processing.</li>
+<li>Big Data transformed industries and created new opportunities and challenges.</li>
+</ul>
+<!-- _footer: "7. Chapter 8: Volume, Variety, and Velocity" -->
+
+<hr />
+<h2 id="machine-learning-and-ai_1">Machine Learning and AI</h2>
+<ul>
+<li>Rise of <strong>Machine Learning</strong>: Transformative impact on data science.</li>
+<li>Key applications in various fields, including healthcare and finance.</li>
+<li>Ethical considerations and future prospects of machine learning technologies.</li>
+</ul>
+<!-- _footer: "8. Chapter 9: Machines, Learning" -->
+
+<hr />
+<h2 id="discussion_1">Discussion</h2>
+<h3 id="what-historical-events-do-you-think-significantly-impacted-the-development-of-data-science">What historical events do you think significantly impacted the development of data science?</h3>
+<ul>
+<li>Consider contributions from individuals like Quetelet and Galton.</li>
+<li>Reflect on the role of data in war, policy, and technological advancements.</li>
+</ul>
+<hr />
+<hr />
+<h1 id="what-is-a-model">What is a Model?</h1>
+<p><strong>2024-01-01</strong></p>
+<hr />
+<h2 id="header">Header</h2>
+<ul>
+<li>Footnote link only.</li>
+<li>Footnote and superscript link <sup><a href="https://www.google.com">1</a></sup></li>
+</ul>
+<!-- _footer: "1. www.google.com" -->
+
+<hr />
+<h2 id="what-is-a-model_1">What is "a Model"?</h2>
+<ul>
+<li><strong>Definition</strong>: A model is a simplified representation of some aspect of reality, used to predict or make decisions about the future.</li>
+</ul>
+<hr />
+<h2 id="what-is-a-model-contd">What is "a Model"? (cont'd)</h2>
+<p><strong>Key Features</strong>:
+ * Abstraction: Models abstract away the complexities of the real world.
+ * Focused Scope: They target specific elements relevant to the predictions or decisions being made.
+ * Predictive Power: Models aim to provide insights about future events or unseen behaviors based on current and historical data.</p>
+<hr />
+<h2 id="purpose-of-models">Purpose of Models</h2>
+<ul>
+<li><strong>Simplify Complex Systems</strong>: Models reduce the complexity of real-world systems, making them easier to understand and analyze.</li>
+<li><strong>Decision-Making Tools</strong>: They help individuals and organizations make informed decisions by predicting outcomes.</li>
+<li><strong>Testing Scenarios</strong>: Models allow for the testing of various scenarios without real-world consequences.</li>
+</ul>
+<hr />
+<h2 id="purpose-of-models-contd">Purpose of Models (cont'd)</h2>
+<ul>
+<li><strong>Examples of Use</strong>:</li>
+<li><strong>Finance</strong>: Predicting stock market trends and investment risks.</li>
+<li><strong>Healthcare</strong>: Forecasting disease outbreaks and patient outcomes.</li>
+<li><strong>Climate Science</strong>: Modeling climate change and weather patterns.</li>
+</ul>
+<hr />
+<h2 id="examples-of-models">Examples of Models</h2>
+<ul>
+<li><strong>Weather Forecasting</strong>:</li>
+<li>Uses data on temperature, humidity, and wind patterns.</li>
+<li>
+<p>Predicts weather conditions to help people plan their activities.</p>
+</li>
+<li>
+<p><strong>Financial Models</strong>:</p>
+</li>
+<li>Analyze market trends and economic indicators.</li>
+<li>Guide investment strategies and risk management.</li>
+</ul>
+<hr />
+<h2 id="examples-of-models-contd">Examples of Models (cont'd)</h2>
+<ul>
+<li><strong>Educational Evaluations</strong>:</li>
+<li>Use student performance data to assess teacher effectiveness.</li>
+<li>
+<p>Aim to improve educational outcomes and resource allocation.</p>
+</li>
+<li>
+<p><strong>Healthcare Models</strong>:</p>
+</li>
+<li>Predict patient outcomes based on medical history and treatment plans.</li>
+<li>Help in designing personalized treatment strategies.</li>
+</ul>
+<hr />
+<h2 id="discussion_2">Discussion</h2>
+<h3 id="whats-an-example-of-models-youve-seen-in-the-world">What's an example of models you've seen in the world?</h3>
+<ul>
+<li>Think about different industries and contexts.</li>
+<li>How do these models impact decisions and outcomes?</li>
+<li>Are there any models you interact with regularly?</li>
+</ul>
+<hr />
+<h2 id="discussion-points">Discussion Points</h2>
+<ul>
+<li><strong>Personal Experience</strong>:</li>
+<li>Have you encountered models in your daily life (e.g., credit scores, online recommendations)?</li>
+<li><strong>Industry-Specific Models</strong>:</li>
+<li>Consider models used in your professional field.</li>
+<li><strong>Model Impact</strong>:</li>
+<li>How do these models influence behavior and decisions?</li>
+</ul>
+<hr />
+<hr />
+<h2 id="characteristics-of-models">Characteristics of Models</h2>
+<ul>
+<li><strong>Abstraction</strong>: Simplifies reality by including only relevant features.</li>
+<li><strong>Input Data</strong>: Based on historical data and assumptions.</li>
+<li><strong>Output</strong>: Predictions or decisions about future events or behaviors.</li>
+</ul>
+<hr />
+<h2 id="real-world-implications">Real-world Implications</h2>
+<ul>
+<li><strong>Decision-making</strong>: Models influence significant decisions in finance, education, justice, and other fields.</li>
+<li><strong>Automation</strong>: Increasing reliance on automated systems for efficiency and scalability.</li>
+<li><strong>Accountability</strong>: The need for transparency and ethical considerations.</li>
+</ul>
+<hr />
+<h1 id="what-makes-a-good-model">What Makes a Good Model?</h1>
+<hr />
+<h2 id="example-baseball-statistics">Example: Baseball Statistics</h2>
+<ul>
+<li><strong>Transparency</strong>: Everyone has access to the data and the methods used.</li>
+<li><strong>Relevance</strong>: Uses directly relevant data such as balls, strikes, and hits.</li>
+<li><strong>Feedback Loop</strong>: Continuously updated with new data and tested for accuracy.</li>
+<li><strong>Statistical Rigor</strong>: Relies on a large amount of relevant data, ensuring robust and reliable predictions.</li>
+</ul>
+<hr />
+<h2 id="baseball-statistics-an-effective-model">Baseball Statistics: An Effective Model</h2>
+<ul>
+<li><strong>Historical Data</strong>: Uses comprehensive and relevant historical data.</li>
+<li><strong>Detailed Analysis</strong>: Considers numerous variables such as player performance in different situations.</li>
+<li><strong>Constant Updates</strong>: Models are updated daily with new game data.</li>
+<li><strong>Clear Metrics</strong>: Metrics like batting averages and strike rates are well understood and directly relevant to game outcomes.</li>
+</ul>
+<hr />
+<h2 id="characteristics-of-a-good-model">Characteristics of a Good Model</h2>
+<ul>
+<li><strong>Accurate</strong>: Produces reliable predictions.</li>
+<li><strong>Fair</strong>: Applies equally to all individuals or situations.</li>
+<li><strong>Transparent</strong>: Understandable and explainable to users.</li>
+<li><strong>Dynamic</strong>: Continuously updated with new information.</li>
+</ul>
+<hr />
+<h2 id="benefits-of-good-models">Benefits of Good Models</h2>
+<ul>
+<li><strong>Enhanced Decision-making</strong>: Better predictions lead to better decisions.</li>
+<li><strong>Trust and Accountability</strong>: Transparency builds trust and allows for accountability.</li>
+<li><strong>Adaptability</strong>: Dynamic models can adapt to new data and changing conditions.</li>
+</ul>
+<hr />
+<h1 id="what-makes-a-bad-model">What Makes a Bad Model?</h1>
+<hr />
+<h2 id="example-prison-recidivism">Example: Prison Recidivism</h2>
+<ul>
+<li><strong>Opaque</strong>: The workings of the model are hidden and not understandable to most people.</li>
+<li><strong>Biased Data</strong>: Includes prejudicial assumptions, such as race affecting recidivism predictions.</li>
+<li><strong>Static</strong>: Not regularly updated or tested against reality.</li>
+<li><strong>Unfair</strong>: Disproportionately affects certain groups, reinforcing existing inequalities.</li>
+</ul>
+<hr />
+<h2 id="prison-recidivism-a-problematic-model">Prison Recidivism: A Problematic Model</h2>
+<ul>
+<li><strong>Hidden Assumptions</strong>: Relies on factors that may not be relevant or fair, like race or socioeconomic background.</li>
+<li><strong>Lack of Transparency</strong>: The algorithms and their inputs are not disclosed to those affected.</li>
+<li><strong>Unaccountable</strong>: No feedback loop to correct errors or biases in the model.</li>
+<li><strong>Discriminatory Impact</strong>: Often leads to harsher sentences for minorities based on flawed predictions.</li>
+</ul>
+<hr />
+<h2 id="characteristics-of-a-bad-model">Characteristics of a Bad Model</h2>
+<ul>
+<li><strong>Inaccurate</strong>: Produces unreliable or harmful predictions.</li>
+<li><strong>Biased</strong>: Reflects and reinforces human prejudices.</li>
+<li><strong>Opaque</strong>: Lack of transparency and accountability.</li>
+<li><strong>Static</strong>: Fails to update with new data or feedback.</li>
+</ul>
+<hr />
+<h2 id="dangers-of-bad-models">Dangers of Bad Models</h2>
+<ul>
+<li><strong>Reinforces Inequality</strong>: Exacerbates existing social and economic disparities.</li>
+<li><strong>Lack of Redress</strong>: Individuals have little recourse against incorrect or unfair decisions.</li>
+<li><strong>Erosion of Trust</strong>: Lack of transparency leads to distrust in systems and institutions.</li>
+<li><strong>Self-Perpetuating</strong>: Faulty models can create feedback loops that perpetuate their own biases and errors.</li>
+</ul>
+<hr />
+<h1 id="case-studies-good-vs-bad-models">Case Studies: Good vs. Bad Models</h1>
+<hr />
+<h2 id="good-model-baseball-statistics">Good Model: Baseball Statistics</h2>
+<ul>
+<li><strong>Scenario</strong>: Managers use statistical models to decide player positioning and game strategy.</li>
+<li><strong>Data</strong>: Includes detailed records of player performance over time.</li>
+<li><strong>Outcome</strong>: Increases the likelihood of successful plays and wins.</li>
+<li><strong>Transparency</strong>: Fans and analysts have access to the same data and can understand decisions.</li>
+</ul>
+<hr />
+<h2 id="bad-model-teacher-evaluation">Bad Model: Teacher Evaluation</h2>
+<ul>
+<li><strong>Scenario</strong>: Washington, D.C. schools use a value-added model to evaluate teachers.</li>
+<li><strong>Data</strong>: Based heavily on student test scores.</li>
+<li><strong>Outcome</strong>: Good teachers like Sarah Wysocki are unfairly fired due to flawed metrics.</li>
+<li><strong>Opaque</strong>: Teachers and the public do not have access to understand or contest the scores.</li>
+</ul>
+<hr />
+<h1 id="conclusion">Conclusion</h1>
+<hr />
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li>Models are powerful tools that can influence many aspects of life.</li>
+<li>A good model is accurate, fair, transparent, and dynamic.</li>
+<li>A bad model is inaccurate, biased, opaque, and static.</li>
+<li>Understanding the strengths and weaknesses of models is crucial for their responsible use.</li>
+</ul>
+<hr />
+<h2 id="questions">Questions?</h2>
+<p>Thank you for your attention!</p>
+<hr />
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.sections"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      
+    
+  </body>
+</html>
