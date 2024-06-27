@@ -24,7 +24,11 @@
  /* Import the Gaia theme */div#\:\$p>svg>foreignObject>:where(section):not([root]){--dracula-background:#282a36;--dracula-current-line:#44475a;--dracula-foreground:#f8f8f2;--dracula-comment:#6272a4;--dracula-cyan:#8be9fd;--dracula-green:#50fa7b;--dracula-orange:#ffb86c;--dracula-pink:#ff79c6;--dracula-purple:#bd93f9;--dracula-red:#ff5555;--dracula-yellow:#f1fa8c}
 
 /* Dracula Code theme ------------------------------------------------------- */
-/* -------------------------------------------------------------------------- */div#\:\$p>svg>foreignObject>section marp-pre{display:block;overflow-x:auto;padding:0.5em;background:var(--dracula-background);border:1px solid var(--dracula-current-line);border-radius:5px}
+/* -------------------------------------------------------------------------- */div#\:\$p>svg>foreignObject>section marp-pre{display:block;overflow-x:auto;padding:0.1em;background:var(--dracula-background);border:1px solid var(--dracula-current-line)}
+
+/* When we have a code block that immediately follows a paragraph, another code block, we want to
+ * make it look like the code output of a jupyter cell (no background). */div#\:\$p>svg>foreignObject>section marp-pre+marp-pre{margin-top:0px;background-color:transparent;padding:0.1em}
+
 
 /* Dracula Foreground */div#\:\$p>svg>foreignObject>section .hljs,div#\:\$p>svg>foreignObject>section .hljs-subst,div#\:\$p>svg>foreignObject>section .hljs-template-variable,div#\:\$p>svg>foreignObject>section .hljs-typing,div#\:\$p>svg>foreignObject>section .hljs-variable{color:var(--dracula-foreground)}
 
@@ -68,6 +72,7 @@
 <header>Control Flow</header>
 
 <h1 id="control-flow">Control Flow</h1>
+<p><code>if</code>, <code>else</code>, and <code>elif</code> statements</p>
 <footer><a href="https://python.swaroopch.com/control_flow.html">A Byte of Python - Control Flow</a></footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="2" data-paginate="true" data-footer="&lt;a href=&quot;https://python.swaroopch.com/control_flow.html&quot;&gt;A Byte of Python - Control Flow&lt;/a&gt;" data-header="Control Flow" data-class="lead" data-theme="vibey" lang="en-US" class="lead" data-marpit-pagination="2" style="--paginate:true;--footer:&lt;a href=&quot;https://python.swaroopch.com/control_flow.html&quot;&gt;A Byte of Python - Control Flow&lt;/a&gt;;--header:Control Flow;--class:lead;--theme:vibey;" data-marpit-pagination-total="9">

@@ -24,7 +24,11 @@
  /* Import the Gaia theme */div#\:\$p>svg>foreignObject>:where(section):not([root]){--dracula-background:#282a36;--dracula-current-line:#44475a;--dracula-foreground:#f8f8f2;--dracula-comment:#6272a4;--dracula-cyan:#8be9fd;--dracula-green:#50fa7b;--dracula-orange:#ffb86c;--dracula-pink:#ff79c6;--dracula-purple:#bd93f9;--dracula-red:#ff5555;--dracula-yellow:#f1fa8c}
 
 /* Dracula Code theme ------------------------------------------------------- */
-/* -------------------------------------------------------------------------- */div#\:\$p>svg>foreignObject>section marp-pre{display:block;overflow-x:auto;padding:0.5em;background:var(--dracula-background);border:1px solid var(--dracula-current-line);border-radius:5px}
+/* -------------------------------------------------------------------------- */div#\:\$p>svg>foreignObject>section marp-pre{display:block;overflow-x:auto;padding:0.1em;background:var(--dracula-background);border:1px solid var(--dracula-current-line)}
+
+/* When we have a code block that immediately follows a paragraph, another code block, we want to
+ * make it look like the code output of a jupyter cell (no background). */div#\:\$p>svg>foreignObject>section marp-pre+marp-pre{margin-top:0px;background-color:transparent;padding:0.1em}
+
 
 /* Dracula Foreground */div#\:\$p>svg>foreignObject>section .hljs,div#\:\$p>svg>foreignObject>section .hljs-subst,div#\:\$p>svg>foreignObject>section .hljs-template-variable,div#\:\$p>svg>foreignObject>section .hljs-typing,div#\:\$p>svg>foreignObject>section .hljs-variable{color:var(--dracula-foreground)}
 
@@ -173,11 +177,12 @@ mymodule.say_hi()
 <h2 id="json">JSON</h2>
 <ul>
 <li>Encode and decode JSON data.</li>
-<li>Example:<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py">&gt;&gt; <span class="hljs-keyword">import</span> json
+<li>Example:<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py"><span class="hljs-keyword">import</span> json
 
-&gt;&gt; data = {<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">25</span>}
-&gt;&gt; json.dumps(data)
-<span class="hljs-string">&#x27;{&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 25}&#x27;</span>
+data = {<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">25</span>}
+json.dumps(data)
+</code></pre>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code>'{&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 25}'
 </code></pre>
 </li>
 </ul>
@@ -188,12 +193,13 @@ mymodule.say_hi()
 <h2 id="pprint">PPrint</h2>
 <ul>
 <li>Pretty print data structures.</li>
-<li>Example:<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py">&gt;&gt; <span class="hljs-keyword">from</span> pprint <span class="hljs-keyword">import</span> pprint
+<li>Example:<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py"><span class="hljs-keyword">from</span> pprint <span class="hljs-keyword">import</span> pprint
 
-&gt;&gt; data = {<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">25</span>}
-&gt;&gt; pprint(data)
-{<span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">25</span>,
- <span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;Alice&#x27;</span>}
+data = {<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">25</span>}
+pprint(data)
+</code></pre>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code>{'age': 25,
+ 'name': 'Alice'}
 </code></pre>
 </li>
 </ul>

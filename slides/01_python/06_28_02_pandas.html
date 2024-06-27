@@ -24,7 +24,11 @@
  /* Import the Gaia theme */div#\:\$p>svg>foreignObject>:where(section):not([root]){--dracula-background:#282a36;--dracula-current-line:#44475a;--dracula-foreground:#f8f8f2;--dracula-comment:#6272a4;--dracula-cyan:#8be9fd;--dracula-green:#50fa7b;--dracula-orange:#ffb86c;--dracula-pink:#ff79c6;--dracula-purple:#bd93f9;--dracula-red:#ff5555;--dracula-yellow:#f1fa8c}
 
 /* Dracula Code theme ------------------------------------------------------- */
-/* -------------------------------------------------------------------------- */div#\:\$p>svg>foreignObject>section marp-pre{display:block;overflow-x:auto;padding:0.5em;background:var(--dracula-background);border:1px solid var(--dracula-current-line);border-radius:5px}
+/* -------------------------------------------------------------------------- */div#\:\$p>svg>foreignObject>section marp-pre{display:block;overflow-x:auto;padding:0.1em;background:var(--dracula-background);border:1px solid var(--dracula-current-line)}
+
+/* When we have a code block that immediately follows a paragraph, another code block, we want to
+ * make it look like the code output of a jupyter cell (no background). */div#\:\$p>svg>foreignObject>section marp-pre+marp-pre{margin-top:0px;background-color:transparent;padding:0.1em}
+
 
 /* Dracula Foreground */div#\:\$p>svg>foreignObject>section .hljs,div#\:\$p>svg>foreignObject>section .hljs-subst,div#\:\$p>svg>foreignObject>section .hljs-template-variable,div#\:\$p>svg>foreignObject>section .hljs-typing,div#\:\$p>svg>foreignObject>section .hljs-variable{color:var(--dracula-foreground)}
 
@@ -64,30 +68,59 @@
 
 /* Make the lists have a little less gap after them. */div#\:\$p>svg>foreignObject>section ul{margin-bottom:10px}
 
-/* Left and Right Columns utility div */div#\:\$p>svg>foreignObject>section div.columns{display:flex;justify-content:space-between}div#\:\$p>svg>foreignObject>section div.columns div{width:48%;padding:10px}div#\:\$p>svg>foreignObject>section div.columns img{width:48%;padding:10px}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]{columns:initial!important;display:block!important;padding:0!important}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]:after,div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]:before,div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=content]:after,div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=content]:before{display:none!important}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container]{all:initial;display:flex;flex-direction:row;height:100%;overflow:hidden;width:100%}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container][data-marpit-advanced-background-direction=vertical]{flex-direction:column}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background][data-marpit-advanced-background-split]>div[data-marpit-advanced-background-container]{width:var(--marpit-advanced-background-split,50%)}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background][data-marpit-advanced-background-split=right]>div[data-marpit-advanced-background-container]{margin-left:calc(100% - var(--marpit-advanced-background-split, 50%))}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container]>figure{all:initial;background-position:center;background-repeat:no-repeat;background-size:cover;flex:auto;margin:0}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container]>figure>figcaption{position:absolute;border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;white-space:nowrap;width:1px}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=content],div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=pseudo]{background:transparent!important}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=pseudo],div#\:\$p>svg[data-marpit-svg]>foreignObject[data-marpit-advanced-background=pseudo]{pointer-events:none!important}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background-split]{width:100%;height:100%}</style></head><body><div class="bespoke-marp-osc"><button data-bespoke-marp-osc="prev" tabindex="-1" title="Previous slide">Previous slide</button><span data-bespoke-marp-osc="page"></span><button data-bespoke-marp-osc="next" tabindex="-1" title="Next slide">Next slide</button><button data-bespoke-marp-osc="fullscreen" tabindex="-1" title="Toggle fullscreen (f)">Toggle fullscreen</button><button data-bespoke-marp-osc="presenter" tabindex="-1" title="Open presenter view (p)">Open presenter view</button></div><div id=":$p"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="1" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-class="lead invert" data-theme="vibey" lang="en-US" class="lead invert" data-marpit-pagination="1" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--class:lead invert;--theme:vibey;" data-marpit-pagination-total="19">
+/* Left and Right Columns utility div */div#\:\$p>svg>foreignObject>section div.columns{display:flex;justify-content:space-between}div#\:\$p>svg>foreignObject>section div.columns div{width:48%;padding:10px}div#\:\$p>svg>foreignObject>section div.columns img{width:48%;padding:10px}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]{columns:initial!important;display:block!important;padding:0!important}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]:after,div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]:before,div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=content]:after,div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=content]:before{display:none!important}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container]{all:initial;display:flex;flex-direction:row;height:100%;overflow:hidden;width:100%}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container][data-marpit-advanced-background-direction=vertical]{flex-direction:column}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background][data-marpit-advanced-background-split]>div[data-marpit-advanced-background-container]{width:var(--marpit-advanced-background-split,50%)}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background][data-marpit-advanced-background-split=right]>div[data-marpit-advanced-background-container]{margin-left:calc(100% - var(--marpit-advanced-background-split, 50%))}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container]>figure{all:initial;background-position:center;background-repeat:no-repeat;background-size:cover;flex:auto;margin:0}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container]>figure>figcaption{position:absolute;border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;white-space:nowrap;width:1px}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=content],div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=pseudo]{background:transparent!important}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background=pseudo],div#\:\$p>svg[data-marpit-svg]>foreignObject[data-marpit-advanced-background=pseudo]{pointer-events:none!important}div#\:\$p>svg>foreignObject>section[data-marpit-advanced-background-split]{width:100%;height:100%}</style></head><body><div class="bespoke-marp-osc"><button data-bespoke-marp-osc="prev" tabindex="-1" title="Previous slide">Previous slide</button><span data-bespoke-marp-osc="page"></span><button data-bespoke-marp-osc="next" tabindex="-1" title="Next slide">Next slide</button><button data-bespoke-marp-osc="fullscreen" tabindex="-1" title="Toggle fullscreen (f)">Toggle fullscreen</button><button data-bespoke-marp-osc="presenter" tabindex="-1" title="Open presenter view (p)">Open presenter view</button></div><div id=":$p"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="1" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-class="lead invert" data-theme="vibey" lang="en-US" class="lead invert" data-marpit-pagination="1" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--class:lead invert;--theme:vibey;" data-marpit-pagination-total="21">
 <header>Python Modules</header>
 
 <h1 id="%F0%9F%90%BC-pandas-%F0%9F%90%BC"><img class="emoji" draggable="false" alt="🐼" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f43c.svg" data-marp-twemoji=""/> Pandas <img class="emoji" draggable="false" alt="🐼" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f43c.svg" data-marp-twemoji=""/></h1>
 <footer><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">Pandas - Intro Tutorials</a></footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="2" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="2" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="19">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="2" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="2" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="21">
 <header>Python Modules</header>
 <h2 id="introduction-to-pandas">Introduction to pandas</h2>
 <ul>
-<li>Pandas is a powerful Python library for data analysis.</li>
+<li>Pandas is a popular Python library for data analysis.</li>
 <li>It provides data structures like DataFrame and Series.</li>
+<li><strong>It's your ultimate tool for working with tables.</strong></li>
 </ul>
 <footer><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">Pandas - Intro Tutorials</a></footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="3" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="19" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/table_dataframe.svg&quot;);background-size:contain;filter:invert(1);"><figcaption>center</figcaption></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="3" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="3" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="19" data-marpit-advanced-background="content">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="3" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="3" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="21">
+<header>Python Modules</header>
+<h2 id="recap-on-tabular-data-in-python-so-far">Recap on Tabular Data in Python So Far...</h2>
+<div class="columns"><div>
+<p>List-of-Lists:</p>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py">data = [
+    [<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;city&quot;</span>, <span class="hljs-string">&quot;age&quot;</span>],
+    [<span class="hljs-string">&quot;Alice&quot;</span>, <span class="hljs-string">&quot;New York&quot;</span>, <span class="hljs-number">25</span>],
+    [<span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-string">&quot;Los Angeles&quot;</span>, <span class="hljs-number">30</span>],
+    [<span class="hljs-string">&quot;Charlie&quot;</span>, <span class="hljs-string">&quot;Chicago&quot;</span>, <span class="hljs-number">35</span>],
+]
+
+age_idx = data[<span class="hljs-number">0</span>].index(<span class="hljs-string">&quot;age&quot;</span>)
+data[<span class="hljs-number">2</span>][city_idx]
+</code></pre>
+</div><div>
+<p>List-of-Dictionaries:</p>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py">data = [
+  {<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Alice&quot;</span>, <span class="hljs-string">&quot;city&quot;</span>: <span class="hljs-string">&quot;New York&quot;</span>, <span class="hljs-string">&quot;age&quot;</span>: <span class="hljs-number">25</span>},
+  {<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-string">&quot;city&quot;</span>: <span class="hljs-string">&quot;Los Angeles&quot;</span>, <span class="hljs-string">&quot;age&quot;</span>: <span class="hljs-number">30</span>},
+  {<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Charlie&quot;</span>, <span class="hljs-string">&quot;city&quot;</span>: <span class="hljs-string">&quot;Chicago&quot;</span>, <span class="hljs-string">&quot;age&quot;</span>: <span class="hljs-number">35</span>},
+]
+
+data[<span class="hljs-number">1</span>][<span class="hljs-string">&quot;age&quot;</span>]
+</code></pre>
+</div></div>
+<footer><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">Pandas - Intro Tutorials</a></footer>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="4" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="21" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/table_dataframe.svg&quot;);background-size:contain;filter:invert(1);"><figcaption>center</figcaption></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="4" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="4" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="21" data-marpit-advanced-background="content">
 <header>Python Modules</header>
 <footer><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">Pandas - Intro Tutorials</a></footer>
 </section>
-</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="3" style="" data-marpit-pagination-total="19" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="4" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="19" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/table_series.svg&quot;);background-size:contain;filter:invert(1);"><figcaption>center</figcaption></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="4" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="4" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="19" data-marpit-advanced-background="content">
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="4" style="" data-marpit-pagination-total="21" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="5" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="21" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/table_series.svg&quot;);background-size:contain;filter:invert(1);"><figcaption>center</figcaption></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="5" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="5" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="21" data-marpit-advanced-background="content">
 <header>Python Modules</header>
 <footer><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">Pandas - Intro Tutorials</a></footer>
 </section>
-</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="4" style="" data-marpit-pagination-total="19" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="5" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="5" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="19">
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="5" style="" data-marpit-pagination-total="21" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="6" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="6" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="21">
 <header>Python Modules</header>
 <h2 id="importing-pandas">Importing pandas</h2>
 <ul>
@@ -97,163 +130,181 @@
 </ul>
 <footer><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">Pandas - Intro Tutorials</a></footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="6" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="6" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="19">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="7" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="7" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="21">
 <header>Python Modules</header>
 <h2 id="creating-a-dataframe">Creating a DataFrame</h2>
 <ul>
 <li>DataFrames are 2-dimensional, size-mutable, and heterogeneous tabular data structures. They're like a 2D-array on steroids!<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py"><span class="hljs-meta">&gt;&gt;&gt; </span>data = {
-        <span class="hljs-string">&#x27;Name&#x27;</span>: [<span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-string">&#x27;Bob&#x27;</span>, <span class="hljs-string">&#x27;Charlie&#x27;</span>],
-        <span class="hljs-string">&#x27;Age&#x27;</span>: [<span class="hljs-number">25</span>, <span class="hljs-number">30</span>, <span class="hljs-number">35</span>],
-        <span class="hljs-string">&#x27;City&#x27;</span>: [<span class="hljs-string">&#x27;New York&#x27;</span>, <span class="hljs-string">&#x27;Los Angeles&#x27;</span>, <span class="hljs-string">&#x27;Chicago&#x27;</span>]
+        <span class="hljs-string">&#x27;name&#x27;</span>: [<span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-string">&#x27;Bob&#x27;</span>, <span class="hljs-string">&#x27;Charlie&#x27;</span>],
+        <span class="hljs-string">&#x27;age&#x27;</span>: [<span class="hljs-number">25</span>, <span class="hljs-number">30</span>, <span class="hljs-number">35</span>],
+        <span class="hljs-string">&#x27;city&#x27;</span>: [<span class="hljs-string">&#x27;New York&#x27;</span>, <span class="hljs-string">&#x27;Los Angeles&#x27;</span>, <span class="hljs-string">&#x27;Chicago&#x27;</span>]
     }
 <span class="hljs-meta">&gt;&gt;&gt; </span>df = pd.DataFrame(data)
-<span class="hljs-meta">&gt;&gt;&gt; </span>df[<span class="hljs-string">&#x27;Age&#x27;</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span>df[<span class="hljs-string">&#x27;age&#x27;</span>]
 <span class="hljs-number">0</span>    <span class="hljs-number">25</span>
 <span class="hljs-number">1</span>    <span class="hljs-number">30</span>
 <span class="hljs-number">2</span>    <span class="hljs-number">35</span>
-Name: Age, dtype: int64
+name: age, dtype: int64
 </code></pre>
 </li>
 </ul>
 <footer><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">Pandas - Intro Tutorials</a></footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="7" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="7" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="19">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="8" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="8" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="21">
 <header>Python Modules</header>
 <h2 id="viewing-data">Viewing Data</h2>
 <p>Use <code>.head()</code> to view the first few rows.</p>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py"><span class="hljs-meta">&gt;&gt;&gt; </span>df.head(<span class="hljs-number">2</span>)
-    Name  Age         City
+    name  age         city
 <span class="hljs-number">0</span>  Alice   <span class="hljs-number">25</span>     New York
 <span class="hljs-number">1</span>    Bob   <span class="hljs-number">30</span>  Los Angeles
 </code></pre>
 <footer><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">Pandas - Intro Tutorials</a></footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="8" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="8" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="19">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="9" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="9" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="21">
 <header>Python Modules</header>
 <h2 id="viewing-data-1">Viewing Data</h2>
 <p>Use <code>.info()</code> to get a concise summary of the DataFrame.</p>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py"><span class="hljs-meta">&gt;&gt;&gt; </span>df.info()
-&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;pandas.core.frame.DataFrame&#x27;</span>&gt;
 RangeIndex: <span class="hljs-number">3</span> entries, <span class="hljs-number">0</span> to <span class="hljs-number">2</span>
 Data columns (total <span class="hljs-number">3</span> columns):
  <span class="hljs-comment">#   Column  Non-Null Count  Dtype </span>
 ---  ------  --------------  ----- 
- <span class="hljs-number">0</span>   Name    <span class="hljs-number">3</span> non-null      <span class="hljs-built_in">object</span>
- <span class="hljs-number">1</span>   Age     <span class="hljs-number">3</span> non-null      int64 
- <span class="hljs-number">2</span>   City    <span class="hljs-number">3</span> non-null      <span class="hljs-built_in">object</span>
+ <span class="hljs-number">0</span>   name    <span class="hljs-number">3</span> non-null      <span class="hljs-built_in">object</span>
+ <span class="hljs-number">1</span>   age     <span class="hljs-number">3</span> non-null      int64 
+ <span class="hljs-number">2</span>   city    <span class="hljs-number">3</span> non-null      <span class="hljs-built_in">object</span>
 dtypes: int64(<span class="hljs-number">1</span>), <span class="hljs-built_in">object</span>(<span class="hljs-number">2</span>)
 memory usage: <span class="hljs-number">200.0</span>+ <span class="hljs-built_in">bytes</span>
 </code></pre>
 <footer><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">Pandas - Intro Tutorials</a></footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="9" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="9" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="19">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="10" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="10" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="21">
 <header>Python Modules</header>
 <h2 id="a-single-column-is-a-series">A Single Column is a Series</h2>
-<p>A Series is a one-dimensional labeled array capable of holding any data type.<br />
-Select a column:</p>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py"><span class="hljs-meta">&gt;&gt;&gt; </span>df[<span class="hljs-string">&#x27;Name&#x27;</span>]
+<ul>
+<li>A Series is a one-dimensional labeled array capable of holding any data type.</li>
+<li>Select a column:<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py"><span class="hljs-meta">&gt;&gt;&gt; </span>df[<span class="hljs-string">&#x27;name&#x27;</span>]
 <span class="hljs-number">0</span>      Alice
 <span class="hljs-number">1</span>        Bob
 <span class="hljs-number">2</span>    Charlie
-Name: Name, dtype: <span class="hljs-built_in">object</span>
-Note how the output includes the index <span class="hljs-keyword">and</span> data <span class="hljs-built_in">type</span>. 
+name: name, dtype: <span class="hljs-built_in">object</span>
 </code></pre>
+</li>
+<li>Note how the output includes the index and data type.</li>
+</ul>
 <footer><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">Pandas - Intro Tutorials</a></footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="10" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="10" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="19">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="11" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="11" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="21">
 <header>Python Modules</header>
-<h2 id="simple-aggregate-methods">Simple Aggregate Methods</h2>
+<h2 id="you-can-also-create-a-series">You Can also Create a Series</h2>
 <ul>
-<li>Calculate the mean of a column (<code>Series =&gt; float</code>):<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py"><span class="hljs-meta">&gt;&gt;&gt; </span>df[<span class="hljs-string">&#x27;Age&#x27;</span>].mean()
-<span class="hljs-number">30.0</span>
+<li>Create a Series from a list:<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py"><span class="hljs-meta">&gt;&gt;&gt; </span>s = pd.Series([<span class="hljs-number">25</span>, <span class="hljs-number">30</span>, <span class="hljs-number">35</span>])
+<span class="hljs-meta">&gt;&gt;&gt; </span>s
+<span class="hljs-number">0</span>    <span class="hljs-number">25</span>
+<span class="hljs-number">1</span>    <span class="hljs-number">30</span>
+<span class="hljs-number">2</span>    <span class="hljs-number">35</span>
+dtype: int64
 </code></pre>
 </li>
-<li>Calculate the sum of a column (<code>Series =&gt; float</code>):<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py"><span class="hljs-meta">&gt;&gt;&gt; </span>df[<span class="hljs-string">&#x27;Age&#x27;</span>].<span class="hljs-built_in">sum</span>()
-<span class="hljs-number">35</span>
-</code></pre>
-</li>
-<li>Calculate the mean of each numeric column (<code>DataFrame =&gt; Series</code>):<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py"><span class="hljs-meta">&gt;&gt;&gt; </span>df.mean(numeric_only=<span class="hljs-literal">True</span>)
-Age          <span class="hljs-number">31.0</span>
-Salary    <span class="hljs-number">60000.0</span>
+<li>And, for the most part, treat it like a list:<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py"><span class="hljs-meta">&gt;&gt;&gt; </span>s[<span class="hljs-number">1</span>]
+<span class="hljs-number">30</span>
 </code></pre>
 </li>
 </ul>
 <footer><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">Pandas - Intro Tutorials</a></footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="11" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="11" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="19">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="12" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="12" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="21">
+<header>Python Modules</header>
+<h2 id="simple-aggregate-methods">Simple Aggregate Methods</h2>
+<ul>
+<li>In addition to the normal <code>list</code> stuff, <code>Series</code> have some handy methods for aggregation.<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py"><span class="hljs-meta">&gt;&gt;&gt; </span>df[<span class="hljs-string">&#x27;age&#x27;</span>].mean()
+<span class="hljs-number">30.0</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>df[<span class="hljs-string">&#x27;age&#x27;</span>].<span class="hljs-built_in">sum</span>()
+<span class="hljs-number">35</span>
+</code></pre>
+</li>
+<li>When you use these methods on a <code>DataFrame</code>, they return a <code>Series</code><pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py"><span class="hljs-meta">&gt;&gt;&gt; </span>df.mean(numeric_only=<span class="hljs-literal">True</span>)
+age          <span class="hljs-number">31.0</span>
+salary    <span class="hljs-number">60000.0</span>
+</code></pre>
+</li>
+</ul>
+<footer><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">Pandas - Intro Tutorials</a></footer>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="13" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="13" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="21">
 <header>Python Modules</header>
 <h2 id="selecting-multiple-columns">Selecting Multiple Columns</h2>
-<p>Selecting multiple columns returns a DataFrame.</p>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py"><span class="hljs-meta">&gt;&gt;&gt; </span>df[[<span class="hljs-string">&#x27;Name&#x27;</span>, <span class="hljs-string">&#x27;City&#x27;</span>]]
-      Name         City
+<p>Selecting multiple columns returns a <code>DataFrame</code>.</p>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py"><span class="hljs-meta">&gt;&gt;&gt; </span>df[[<span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-string">&#x27;city&#x27;</span>]]
+      name         city
 <span class="hljs-number">0</span>    Alice     New York
 <span class="hljs-number">1</span>      Bob  Los Angeles
 <span class="hljs-number">2</span>  Charlie      Chicago
 </code></pre>
 <footer><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">Pandas - Intro Tutorials</a></footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="12" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="12" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="19">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="14" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="14" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="21">
 <header>Python Modules</header>
 <h2 id="filtering-data">Filtering Data</h2>
-<p>Filter rows based on a condition:</p>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py"><span class="hljs-meta">&gt;&gt;&gt; </span>df[df[<span class="hljs-string">&#x27;Age&#x27;</span>] &gt; <span class="hljs-number">30</span>]
-      Name  Age     City
+<p>In addition to selecting columns, you can Filter rows based on a condition:</p>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py"><span class="hljs-meta">&gt;&gt;&gt; </span>df[df[<span class="hljs-string">&#x27;age&#x27;</span>] &gt; <span class="hljs-number">30</span>]
+      name  age     city
 <span class="hljs-number">2</span>  Charlie   <span class="hljs-number">35</span>  Chicago
 
-<span class="hljs-meta">&gt;&gt;&gt; </span>is_new_york = df[<span class="hljs-string">&#x27;City&#x27;</span>] == <span class="hljs-string">&#x27;New York&#x27;</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>is_new_york = df[<span class="hljs-string">&#x27;city&#x27;</span>] == <span class="hljs-string">&#x27;New York&#x27;</span>
 <span class="hljs-meta">&gt;&gt;&gt; </span>df[is_new_york]
-    Name  Age      City
+    name  age      city
 <span class="hljs-number">0</span>  Alice   <span class="hljs-number">25</span>  New York
 </code></pre>
 <footer><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">Pandas - Intro Tutorials</a></footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="13" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="13" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="19">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="15" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="15" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="21">
 <header>Python Modules</header>
 <h2 id="adding-and-modifying-columns">Adding and Modifying Columns</h2>
 <p>Add a new column:</p>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py"><span class="hljs-meta">&gt;&gt;&gt; </span>df[<span class="hljs-string">&#x27;Salary&#x27;</span>] = [<span class="hljs-number">50000</span>, <span class="hljs-literal">None</span>, <span class="hljs-number">70000</span>]
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py"><span class="hljs-meta">&gt;&gt;&gt; </span>df[<span class="hljs-string">&#x27;salary&#x27;</span>] = [<span class="hljs-number">50000</span>, <span class="hljs-literal">None</span>, <span class="hljs-number">70000</span>]
 </code></pre>
 <p>Modify an existing column:</p>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py"><span class="hljs-meta">&gt;&gt;&gt; </span>df[<span class="hljs-string">&#x27;Age&#x27;</span>] = df[<span class="hljs-string">&#x27;Age&#x27;</span>] + <span class="hljs-number">1</span>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py"><span class="hljs-meta">&gt;&gt;&gt; </span>df[<span class="hljs-string">&#x27;age&#x27;</span>] = df[<span class="hljs-string">&#x27;age&#x27;</span>] + <span class="hljs-number">1</span>
 <span class="hljs-meta">&gt;&gt;&gt; </span>df
-      Name  Age         City
+      name  age         city
 <span class="hljs-number">0</span>    Alice   <span class="hljs-number">26</span>     New York
 <span class="hljs-number">1</span>      Bob   <span class="hljs-number">31</span>  Los Angeles
 <span class="hljs-number">2</span>  Charlie   <span class="hljs-number">36</span>      Chicago
 </code></pre>
 <footer><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">Pandas - Intro Tutorials</a></footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="14" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="14" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="19">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="16" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="16" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="21">
 <header>Python Modules</header>
 <h2 id="checking-for-missing-values">Checking for Missing Values</h2>
 <p>Check for missing values:</p>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py"><span class="hljs-meta">&gt;&gt;&gt; </span>df.isnull()
-    Name    Age   City  Salary
+    name    age   city  salary
 <span class="hljs-number">0</span>  <span class="hljs-literal">False</span>  <span class="hljs-literal">False</span>  <span class="hljs-literal">False</span>   <span class="hljs-literal">False</span>
 <span class="hljs-number">1</span>  <span class="hljs-literal">False</span>  <span class="hljs-literal">False</span>  <span class="hljs-literal">False</span>    <span class="hljs-literal">True</span>
 <span class="hljs-number">2</span>  <span class="hljs-literal">False</span>  <span class="hljs-literal">False</span>  <span class="hljs-literal">False</span>   <span class="hljs-literal">False</span>
 
 <span class="hljs-meta">&gt;&gt;&gt; </span>df.isnull().<span class="hljs-built_in">sum</span>()
-Name      <span class="hljs-number">0</span>
-Age       <span class="hljs-number">0</span>
-City      <span class="hljs-number">0</span>
-Salary    <span class="hljs-number">1</span>
+name      <span class="hljs-number">0</span>
+age       <span class="hljs-number">0</span>
+city      <span class="hljs-number">0</span>
+salary    <span class="hljs-number">1</span>
 </code></pre>
 <footer><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">Pandas - Intro Tutorials</a></footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="15" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="15" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="19">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="17" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="17" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="21">
 <header>Python Modules</header>
 <h2 id="what-to-do-about-missing-data">What to Do About Missing Data</h2>
 <ul>
 <li>Fill missing values:<pre is="marp-pre" data-auto-scaling="downscale-only"><code>&gt;&gt;&gt; df.fillna(0, inplace=True)
-        Name  Age         City   Salary
+        name  age         city   salary
 0    Alice   26     New York  50000.0
 1      Bob   31  Los Angeles      0.0
 2  Charlie   36      Chicago  70000.0
 </code></pre>
 </li>
 <li>Drop missing values:<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-py"><span class="hljs-meta">&gt;&gt;&gt; </span>df.dropna(inplace=<span class="hljs-literal">True</span>)
-      Name  Age      City   Salary
+      name  age      city   salary
 <span class="hljs-number">0</span>    Alice   <span class="hljs-number">26</span>  New York  <span class="hljs-number">50000.0</span>
 <span class="hljs-number">2</span>  Charlie   <span class="hljs-number">36</span>   Chicago  <span class="hljs-number">70000.0</span>
 </code></pre>
@@ -261,7 +312,7 @@ Salary    <span class="hljs-number">1</span>
 </ul>
 <footer><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">Pandas - Intro Tutorials</a></footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="16" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="16" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="19">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="18" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="18" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="21">
 <header>Python Modules</header>
 <h2 id="reading-data-in-pandas">Reading Data in Pandas</h2>
 <ul>
@@ -277,7 +328,7 @@ Salary    <span class="hljs-number">1</span>
 </ul>
 <footer><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">Pandas - Intro Tutorials</a></footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="17" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="17" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="19">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="19" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="19" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="21">
 <header>Python Modules</header>
 <h2 id="visualizing-data-with-pandas">Visualizing Data with Pandas</h2>
 <ul>
@@ -290,13 +341,13 @@ Salary    <span class="hljs-number">1</span>
 <p><em>We'll talk more about data visualization in the next module.</em></p>
 <footer><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">Pandas - Intro Tutorials</a></footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="18" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="18" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="19">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="20" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="20" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="21">
 <header>Python Modules</header>
 <h2 id="visualizing-data-with-pandas-1">Visualizing Data with Pandas</h2>
 <p><img src="./img/pandas_scatter.png" alt="center" style="height:500px;" /></p>
 <footer><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">Pandas - Intro Tutorials</a></footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="19" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="19" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="19">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="21" data-paginate="true" data-footer="&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;" data-header="Python Modules" data-theme="vibey" lang="en-US" data-marpit-pagination="21" style="--paginate:true;--footer:&lt;a href=&quot;https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html&quot;&gt;Pandas - Intro Tutorials&lt;/a&gt;;--header:Python Modules;--theme:vibey;" data-marpit-pagination-total="21">
 <header>Python Modules</header>
 <h2 id="summary">Summary</h2>
 <ul>

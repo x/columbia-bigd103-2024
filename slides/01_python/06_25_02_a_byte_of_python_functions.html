@@ -24,7 +24,11 @@
  /* Import the Gaia theme */div#\:\$p>svg>foreignObject>:where(section):not([root]){--dracula-background:#282a36;--dracula-current-line:#44475a;--dracula-foreground:#f8f8f2;--dracula-comment:#6272a4;--dracula-cyan:#8be9fd;--dracula-green:#50fa7b;--dracula-orange:#ffb86c;--dracula-pink:#ff79c6;--dracula-purple:#bd93f9;--dracula-red:#ff5555;--dracula-yellow:#f1fa8c}
 
 /* Dracula Code theme ------------------------------------------------------- */
-/* -------------------------------------------------------------------------- */div#\:\$p>svg>foreignObject>section marp-pre{display:block;overflow-x:auto;padding:0.5em;background:var(--dracula-background);border:1px solid var(--dracula-current-line);border-radius:5px}
+/* -------------------------------------------------------------------------- */div#\:\$p>svg>foreignObject>section marp-pre{display:block;overflow-x:auto;padding:0.1em;background:var(--dracula-background);border:1px solid var(--dracula-current-line)}
+
+/* When we have a code block that immediately follows a paragraph, another code block, we want to
+ * make it look like the code output of a jupyter cell (no background). */div#\:\$p>svg>foreignObject>section marp-pre+marp-pre{margin-top:0px;background-color:transparent;padding:0.1em}
+
 
 /* Dracula Foreground */div#\:\$p>svg>foreignObject>section .hljs,div#\:\$p>svg>foreignObject>section .hljs-subst,div#\:\$p>svg>foreignObject>section .hljs-template-variable,div#\:\$p>svg>foreignObject>section .hljs-typing,div#\:\$p>svg>foreignObject>section .hljs-variable{color:var(--dracula-foreground)}
 
