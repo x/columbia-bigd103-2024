@@ -2,4 +2,8 @@
   "markdown.marp.themes": [
     "./slides/themes/vibey.css"
   ],
+  "cSpell.words": [
+    "convolutional",
+    "Feedforward"
+  ],
 }

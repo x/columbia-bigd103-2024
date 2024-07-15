@@ -152,6 +152,11 @@ section.invert > h1, section.invert > h2, section.invert > h3, section.invert > 
   color: var(--dracula-pink);
 }
 
+section.light {
+  background-image: linear-gradient(to bottom right, #ffffff, var(--dracula-foreground));
+  color: var(--dracula-foreground);
+}
+
 
 /* Custom Positional Styling  ----------------------------------------------- */
 /* -------------------------------------------------------------------------- */
@@ -170,6 +175,7 @@ img[alt~="center"] {
     margin: 0 auto;
     max-width: 100%;
 }
+
 
 img[alt~="scaled"] {
     width: 80%;
